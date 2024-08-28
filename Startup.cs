@@ -34,6 +34,14 @@ namespace MVC_1
                 {
                     await context.Response.WriteAsync("Hello World!");
                 });
+                endpoints.MapGet("/Hello", async context =>
+                {
+                    await context.Response.WriteAsync("Hellooooooo");
+                });
+                endpoints.MapControllerRoute(
+                 name:"default",
+                 pattern:"{controller}/{action}/{id?}"
+                );
             });
         }
     }
