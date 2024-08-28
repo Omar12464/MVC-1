@@ -16,6 +16,7 @@ namespace MVC_1
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -36,11 +37,11 @@ namespace MVC_1
                 });
                 endpoints.MapGet("/Hello", async context =>
                 {
-                    await context.Response.WriteAsync("Hellooooooo");
+                    await context.Response.WriteAsync("Helloo");
                 });
                 endpoints.MapControllerRoute(
                  name:"default",
-                 pattern:"{controller}/{action}/{id?}"
+                 pattern:"{controller=Movie}/{action=GetMovie}/{id:int?}"
                 );
             });
         }
